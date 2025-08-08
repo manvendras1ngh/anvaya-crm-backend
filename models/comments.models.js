@@ -4,12 +4,12 @@ import mongoose from "mongoose";
 const commentSchema = new mongoose.Schema({
   lead: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Lead", // Reference to the Lead model
+    ref: "Lead",
     required: [true, "Lead reference is required"],
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "SalesAgent", // Reference to the SalesAgent who authored the comment
+    ref: "SalesAgent",
     required: [true, "Author is required"],
   },
   commentText: {
@@ -18,7 +18,7 @@ const commentSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now, // Automatically set the creation time
+    default: Date.now,
   },
 });
 
