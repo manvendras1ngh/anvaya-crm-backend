@@ -11,7 +11,7 @@ export const getLeadsClosedLastWeek = asyncWrapper(async (req, res) => {
     closedAt: { $gte: oneWeekAgo },
   }).populate("salesAgent", "name");
 
-  const formattedLeads = closedLeads.map(lead => ({
+  const formattedLeads = closedLeads.map((lead) => ({
     id: lead._id,
     name: lead.name,
     salesAgent: lead.salesAgent.name,
@@ -23,11 +23,10 @@ export const getLeadsClosedLastWeek = asyncWrapper(async (req, res) => {
 
 // Get total leads in pipeline (excluding closed leads)
 export const getTotalLeadsInPipeline = asyncWrapper(async (req, res) => {
-  const totalLeadsInPipeline = await Lead.countDocuments({
-    status: { $ne: "Closed" },
-  });
+  const [totalClosedLeads, totalNonClosedLeads] = await Promise.all([
+    Lead.countDocuments({ status: { $ne: "Closed" } }),
+    Lead.countDocuments({ status: "Closed" }),
+  ]);
 
-  res.status(200).json({
-    totalLeadsInPipeline,
-  });
+  res.status(200).json({ totalClosedLeads, totalNonClosedLeads });
 });
