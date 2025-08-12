@@ -1,30 +1,39 @@
-# 📊 Anvaya CRM Backend
+# Anvaya CRM Backend
 
-> A Node.js REST API for managing leads, agents, and reports in a CRM system
+A Node.js REST API for managing leads, agents, and reports in a CRM system
 
-## 🚀 Quick Start
+## Getting Started
 
-```bash
-# Install dependencies
-npm install
+1. Clone the repository:
+   ```
+   git clone https://github.com/manvendras1ngh/anvaya-crm-backend.git
+   ```
+2. Enter the directory:
+   ```
+   cd <dir-name>
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-# Start development server
-npm run dev
-```
-
-## ⚙️ Environment Setup
+## Environment Setup
 
 Create a `.env` file in the root directory:
 
 ```env
 PORT=3000
-MONGO_URI=mongodb://localhost:27017/anvaya
-CORS_ORIGIN=http://localhost:3000
+MONGO_URI=<your mongo db credentials>
+CORS_ORIGIN=<your frontend url>
 ```
 
 ---
 
-## 📁 Project Architecture
+## Project Architecture
 
 ```
 anvaya-backend/
@@ -57,11 +66,12 @@ anvaya-backend/
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
 **Base URL:** `http://localhost:3000/api/v1`
 
 ### 👥 Leads Management
+
 ```
 POST   /leads              → Create new lead
 GET    /leads              → Fetch all leads
@@ -72,13 +82,15 @@ POST   /leads/:id/comments → Add comment to lead
 GET    /leads/:id/comments → Get lead comments
 ```
 
-### 🏢 Sales Agents
+### Sales Agents
+
 ```
 POST   /agents             → Create new agent
 GET    /agents             → Fetch all agents
 ```
 
-### 📈 Reports & Analytics
+### Reports & Analytics
+
 ```
 GET    /reports/last-week  → Leads closed in last week
 GET    /reports/pipeline   → Total leads in pipeline
@@ -86,34 +98,7 @@ GET    /reports/pipeline   → Total leads in pipeline
 
 ---
 
-## 📋 Data Models
-
-### 🎯 Lead Schema
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String* | Lead's full name |
-| `source` | Enum* | Website, Referral, Cold Call, Advertisement, Email, Other |
-| `salesAgent` | ObjectId* | Reference to assigned agent |
-| `status` | Enum | New, Contacted, Qualified, Proposal Sent, Closed |
-| `tags` | Array | Custom tags for categorization |
-| `timeToClose` | Number* | Expected days to close deal |
-| `priority` | Enum | High, Medium, Low |
-| `createdAt` | Date | Auto-generated timestamp |
-| `updatedAt` | Date | Auto-updated on changes |
-| `closedAt` | Date | Set when status becomes "Closed" |
-
-_*Required fields_
-
-### 👤 Sales Agent Schema
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | String* | Agent's full name |
-| `email` | String* | Unique email address |
-| `createdAt` | Date | Registration timestamp |
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Runtime:** Node.js with ES6 modules
 - **Framework:** Express.js
@@ -121,11 +106,11 @@ _*Required fields_
 - **CORS:** Cross-origin resource sharing enabled
 - **Environment:** dotenv configuration
 
-## 🔧 Server Features
+## Server Features
 
-✅ **JSON parsing** with 16kb limit  
-✅ **CORS enabled** for cross-origin requests  
-✅ **MongoDB integration** via Mongoose  
-✅ **Error handling** middleware  
-✅ **Environment-based** configuration  
-✅ **RESTful API** design patterns
+**JSON parsing** with 16kb limit  
+**CORS enabled** for cross-origin requests  
+**MongoDB integration** via Mongoose  
+**Error handling** middleware  
+**Environment-based** configuration  
+**RESTful API** design patterns
