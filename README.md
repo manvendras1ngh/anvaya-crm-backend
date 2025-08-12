@@ -114,3 +114,9 @@ GET    /reports/pipeline   → Total leads in pipeline
 **Error handling** middleware  
 **Environment-based** configuration  
 **RESTful API** design patterns
+
+## Connect
+
+- **Website**: [manavsingh.in](https://manavsingh.in)
+- **LinkedIn**: [manvendras1ngh](https://www.linkedin.com/in/manvendras1ngh/)
+- **Email**: [007singhmanvendra@gmail.com](mailto:007singhmanvendra@gmail.com)
